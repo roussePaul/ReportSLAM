@@ -1,0 +1,69 @@
+\newcommand{\SortNoop}[1]{} \newcommand{\OneLetter}[1]{#1}
+  \newcommand{\SwapArgs}[2]{#2#1}
+\begin{thebibliography}{}
+
+\bibitem[Abrate et~al., ]{Abrate_experimentalekf-based}
+Abrate, F., Bona, B., and Indri, M.
+\newblock Experimental ekf-based slam for mini-rovers with ir sensors only.
+
+\bibitem[Choi et~al., 2005]{choi2005robust}
+Choi, J., Ahn, S., and Chung, W.~K. (2005).
+\newblock Robust sonar feature detection for the slam of mobile robot.
+\newblock In {\em Intelligent Robots and Systems, 2005.(IROS 2005). 2005
+  IEEE/RSJ International Conference on}, pages 3415--3420. IEEE.
+
+\bibitem[Choi et~al., 2008]{choi2008line}
+Choi, Y.-H., Lee, T.-K., and Oh, S.-Y. (2008).
+\newblock A line feature based slam with low grade range sensors using
+  geometric constraints and active exploration for mobile robot.
+\newblock {\em Autonomous Robots}, 24(1):13--27.
+
+\bibitem[Diosi and Kleeman, 2005]{diosi2005laser}
+Diosi, A. and Kleeman, L. (2005).
+\newblock Laser scan matching in polar coordinates with application to slam.
+\newblock In {\em Intelligent Robots and Systems, 2005.(IROS 2005). 2005
+  IEEE/RSJ International Conference on}, pages 3317--3322. IEEE.
+
+\bibitem[Durrant-Whyte and Bailey, 2006]{Whyte06}
+Durrant-Whyte, H. and Bailey, T. (2006).
+\newblock Simultaneous localisation and mapping (slam): Part i the essential
+  algorithms.
+\newblock {\em IEEE ROBOTICS AND AUTOMATION MAGAZINE}, 2:2006.
+
+\bibitem[Gro{\ss}mann and Poli, 2001]{grossmann2001robust}
+Gro{\ss}mann, A. and Poli, R. (2001).
+\newblock Robust mobile robot localisation from sparse and noisy proximity
+  readings using hough transform and probability grids.
+\newblock {\em Robotics and Autonomous Systems}, 37(1):1--18.
+
+\bibitem[Jensfelt and Christensen, 1999]{jensfelt1999laser}
+Jensfelt, P. and Christensen, H.~I. (1999).
+\newblock Laser based pose tracking.
+\newblock In {\em Robotics and Automation, 1999. Proceedings. 1999 IEEE
+  International Conference on}, volume~4, pages 2994--3000. IEEE.
+
+\bibitem[Nguyen et~al., 2006]{nguyen2006orthogonal}
+Nguyen, V., Harati, A., Martinelli, A., Siegwart, R., and Tomatis, N. (2006).
+\newblock Orthogonal slam: a step toward lightweight indoor autonomous
+  navigation.
+\newblock In {\em Intelligent Robots and Systems, 2006 IEEE/RSJ International
+  Conference on}, pages 5007--5012. IEEE.
+
+\bibitem[Stephens, 1991]{stephens1991probabilistic}
+Stephens, R.~S. (1991).
+\newblock Probabilistic approach to the hough transform.
+\newblock {\em Image and vision computing}, 9(1):66--71.
+
+\bibitem[Wijk et~al., 1998]{wijk1998triangulation}
+Wijk, O., Jensfelt, P., and Christensen, H.~I. (1998).
+\newblock Triangulation based fusion of ultrasonic sensor data.
+\newblock In {\em Robotics and Automation, 1998. Proceedings. 1998 IEEE
+  International Conference on}, volume~4, pages 3419--3424. IEEE.
+
+\bibitem[Zunino and Christensen, 2001]{zunino2001simultaneous}
+Zunino, G. and Christensen, H.~I. (2001).
+\newblock Simultaneous localization and mapping in domestic environments.
+\newblock In {\em Multisensor Fusion and Integration for Intelligent Systems,
+  2001. MFI 2001. International Conference on}, pages 67--72. IEEE.
+
+\end{thebibliography}

@@ -1,0 +1,228 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{url}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage{fancyhdr}
+\usepackage{breakcites}
+
+\graphicspath{{pictures/}}
+
+\title{Simultaneous Localization And Mapping in a domestic environment}
+\author{\hspace*{-0.5cm}
+\begin{tabular}{cccc}
+Report Author &  Group Partner \\
+Paul Rousse &  Jiaheng Qiu \\
+\end{tabular}} 
+\date{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\lhead{EL2320}
+\rhead{$TODO$ \today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+
+Many application of mobile robots take place in a domestic environment (cleaning robot, wheelchair). Localization and mapping are needed in order the robot know where he his. Scanning laser range sensor are most of the time too expensive to be used on these application, cameras have a high CPU cost and might be too sensitive to lighting conditions. We tried to work with ir range sensor because of a lower cost and the easy data acquisition.
+An Extended Kalman Filter has been used to approximate the state of the robot and map features. As in most domestical environments, the map can be drawn with walls either parallel either  orthogonal.
+We succefully implemented an algorithm that work on simulation
+Unfortunately we did not have any real robot to check the algorithm on a real situation.
+
+
+\end{abstract}
+\clearpage
+
+\section{Introduction}
+The Silmutaneous Localization And Mapping problem (SLAM) has been one of the most active field of research in robotic the last 3 decade. 
+In most application of mobile robot it is crucial to know the position of the robot in order to success in its task. However, a previous knowledge about the environment the robot evolve in is not always available. That is what the SLAM problem tries to solve: localizate the root while simultaneously build a map of the environment, and try to minimize errors.
+~\cite{Whyte06} sum up most of the work on SLAM.
+
+Many different algorithms for SLAM have been devlopped, mainly because the success of the algorithm depends on the sensors you have, the features on your map and the robot motion.
+The laser range finder met a great success in the researcher community (\cite{jensfelt1999laser};\cite{diosi2005laser}%
+%TODO citer plus%
+).
+The popularity of this sensor come fom the quality of the measure: "null" propagation time and fairly good range and angular accuracy.
+%TODO developper%
+However the expensive cost of this sensor make it not usable in an unprofessional mobile robot integration.
+Cheaper sensors have been used such as sonar sensor (\cite{zunino2001simultaneous}; \cite{choi2008line}) or PSD infrared sensors (\cite{Abrate_experimentalekf-based}).
+
+If ultrasonic sensors provide a better range estimate than PSD infrared sensors, they have a severe disadvantage: the time propagation is not negligeable when the distance measured id too far nor the robot speed too high. Therefore, the data are noisier and the fire rate is limited. The feature association  task become very hard. In order to get ride of this, \cite{zunino2001simultaneous} use an algorithm that can take advantages of geometrics constraints of an indoor environment in order to perform the classification step with only a few and noisy data: \textit{Triangulation Based Fusion} (\cite{wijk1998triangulation}). This method let to perform a SLAM localization with point features.
+However this method is relevant only when the roboot cross a corner. And therefore, the estimation does not take care of the distance of the robot from the wall.
+
+\cite{choi2005robust} has taken advantages of both point features and line features by combining the TBF method and an Extended Kalman Filter (EKF) implementation.
+Later he adds some realistic constraints that can be met in an indoor environment.
+\cite{choi2008line} tried to take in account this by measuring parameters of walls (angle and distance from the robot) and try to estimate them in a constrained EKF. Every measured point is stored and used in order to measure features of the map. As for \cite{nguyen2006orthogonal}, geometric constraints (such as parallel and orthogonal walls) add information to the map generation and in this way we can have a better estimation of localization and mapping.
+
+\subsection{Contribution}
+There are 3 main contributions in this article.
+First an implementation of a SLAM algorithm with line-feature. Unlike point-feature SLAM implementation, line-feature have the disadvantages of being contiuous, therefore it is difficult to choose when we need to create a new feature or when we need to keep new points associated to the previous line-feature.
+Second, we implemented a the constraint of parallel and orthogonal wall inside the EKF.
+Third, we show that a very simple algorithm can be used in order to create new features. In this way we avoid to use any Hough transform or heavy algorithm.
+
+\subsection{Outline}
+
+The first section will present a review of the previous workk. The second, the implementation of our SLAM algorithm: the state representation in the Extended Kalman Filter (EKF), the constrained model of the map and the feature addition. And the third part will focus on results and limitation of our algorithm.
+
+\section{Related work}
+\label{sec:relwork}
+
+SLAM performed with sparse and noisy sensor based localization as been one of the challenges in domestic robot research. 
+Most of researcher have used Hough transform in order to detect lines. If enough sensors was available, the line detection was be performed at each step (\cite{grossmann2001robust}), if just a few are available, the line detection is performed on a set of points measured on several steps.
+
+That is the strategy of \cite{choi2008line} made an implementation of the SLAM algorithm in an indoor environment by using a smart pre-treamtment of all incoming measures from sonar sensors from the beginning of the mapping. This pre-treatment allow to reduce outlier generations and to perform an easier point-to-line association.
+After this pre-treatment, line features are extracted thanks to a constrained Hough transform around mean angle of all line features. The EKF estimate each line featurse independently.
+Therefore the constrained is set inside the measure and not inside the EKF.
+
+The Hough transform used in \cite{choi2008line} is not a probabilistic tool, it is an approximation of a probabilistic tool (\cite{stephens1991probabilistic}).
+Therefore, they developpe their own covariance calculation which does not take in account the uncertainty on measure.
+This empirical method make the EKF difficult to adjust (the uncartainty on the measure does not affect the empirical covariance computation on the Hough transform!
+
+
+
+\section{My method (1--4) pages}
+\label{sec:method}
+
+
+Implementing a realistic Hough will take too much computational ressources, therefore we choose to avoid any Hough transform and to perform the observation not with lin
+
+You will describe your method / approach / theory in detail in this
+section. In a real paper you would pick a section title that is more
+descriptive than the above. Depending on the work you have done this
+might be split into several sections. Make use of references that
+describe core elements of your method so that you do not have to
+describe everything. There is no room for that. Key results from other
+sources should be summarized to make the paper self contained enough
+for someone in your field to be able to read it without having to read
+ten other papers before they can understand your paper.
+
+Make use of examples to explain things before you go into the gory
+details. Make good use of figures.  Do not introduce mathematical
+symbols unless you make use of them.  All symbols, tables and figures
+need to be explained in the body of the text.  Figures should also have
+captions that are somewhat self contained so that someone skimming and
+looking at the figures can know what they show. If you present
+something complicated you may want to explain it in several iterations
+where you start with an easy to understand, possibly somewhat
+simplified explanation and then go into details. A reader that is only
+looking for a method to use may not be interested in all the details
+but rather enough to understand how to use it and what limitations
+there are. Such a reader may not be a domain expert and he/she is
+likely to skip to the experiments at some point in this section
+because it gets too complicated to understand. Your presentation
+should make this possible.  Any new twist you add needs to be
+motivated in some way.  In a real paper a criticism is often why did
+you add this twist or modification.  Was the justification theoretical
+or just to 'make it work.'  Why is it better than other choices.
+Hacks make papers hard to pass muster in the real world.  In this
+project however this sort of critic is not going to come from me as it
+is not relevant.  I want you to get it to work so that is fine as a
+justification.  I also want you to play around and try out ideas, so
+that is also a good motivation.
+
+Do not be patronizing and avoid statements like "obvious algebraic
+manipulations yield...". It is often better to aim too low when it
+comes to your expectations of what the reader knows than too high. It
+is much easier to skip one of your steps than to come up with that
+step yourself as a reader.
+
+\subsection{Implementation (0--2 pages)}
+
+The description of your method should be provided at a level of
+abstract where implementation details are avoided as much as
+possible. For conveying general knowledge it is typically
+uninteresting to know that you implemented your system in C++ or .NET
+and that you make use of package so and so. However to assess your
+results it may be important to know some of these details. This
+section, if present, provides the implementation details. Limit the
+description to what is important.  What language you used to implement
+your system is in many cases not interesting either but it might be
+interesting to know that you used a kd-tree to make access to certain
+data more efficient or that you made this run super fast using the
+GPU.  This is particularly important if you make comparisons of speed.
+Comparing EKF in Matlab to PF using GPU it would be important to point
+out theses details but if in the end you are focused on accuracy then
+it does not matter at all.
+
+Exactly what you put here varies from case to case. Instructions for
+how to run your system would not end up here unless it is related to
+the problem you deal with. Remember that it is not a software manual
+or a user guide.
+
+\section{Experimental results (1--4 pages)}
+\label{sec:exps}
+
+In this project your task is to create a working implementation of some estimation method so an experimental evaluation is to be expected. Make
+experiments that backs up the claims you make. If you have improved /
+modified some other method, compare your new method with the old. If
+possible include other methods in the comparison.
+
+Here you should have figures and tables that show the results.  It is
+best if there are numerical measures such as mean square error or a
+histogram over errors.  this is even better if the errors are
+normalized with the covariance.  Often one plots the errors over time
+as bars or points and the 2 sigma bound as a curve.  A figure that one
+can see that the estimate is following the true values is good if you
+can show it.  All that requires ground truth so if you do not have
+that your job here is more difficult be creative and show something
+that indicates it works.  For example the innovation process can still
+be shown.
+
+When writing a paper in a well researched area you would be expected
+to compare your result to all or a significant fraction of related
+results and show why your method / contribution is worth publication.
+This does not apply here but some comparisons will help.
+
+Make sure to provide your experimental setup carefully. You want
+someone else to be able to replicate what you did.
+
+A paper where everything works flawless according to the experiments
+is typically looked upon with skepticism. Nothing is perfect! If you
+get perfect results it often means that your tests where not
+challenging enough. As a reader I want to know what the limitations
+are so push it to the limit or at least provide solid arguments for
+where such limits might be.
+
+It is essential to provide an analysis of your results. It is not the
+reader, but you, that should interpret the results. Do not assume that
+the reader is an expert so even result that to you seem obvious may be
+worth to point out. When you write a longer report, your thesis for
+example, the warning lights should go off when you end up with figures
+without any texts on several pages. In this case you have probably not
+provided enough analysis.
+
+As already said but worth repeating, all figures that you have in the
+report must be referenced in the text. Provide captions that allows a
+reader to browse your paper and get the gist of your
+results. Summarize your findings at the end of each experiment if
+long.
+
+If you have statement / hypotheses that you cannot really back up with
+the results put these at the end. Here you can speculate a bit and be
+less formal.  But be clear that this is not a claim but speculation.
+
+\section{Summary and Conclusions (0.5--1 page)}
+\label{sec:summary}
+
+Summarize what you have done and make sure that your highlight your
+contributions. You should not introduce new results in the
+summary. Results should be introduced in the main sections above. Here
+you can speculate on how these results could be extended, what would
+happen in other settings or how the method could be used other domains
+and how to continue with the research in the future. In this section
+you can put statements that one cannot understand unless you have read
+the paper which is not possible in the abstract for example. You do
+not need to be as formal in this section.
+
+
+
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+
+\end{document}
