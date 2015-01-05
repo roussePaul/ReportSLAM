@@ -5,6 +5,10 @@
 \usepackage{graphics}
 \usepackage{fancyhdr}
 \usepackage{breakcites}
+\usepackage[mode=buildnew]{standalone}% requires -shell-escape
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
 
 \graphicspath{{pictures/}}
 
@@ -85,7 +89,7 @@ This empirical method make the EKF difficult to adjust (the uncartainty on the m
 
 
 
-\section{My method (1--4) pages}
+\section{My method}
 \label{sec:method}
 
 % Choix strategique
@@ -109,7 +113,11 @@ The observation model compute the distance from the sensor to the $i^{th}$ wall 
 h_i(\mathbf{x}) =\frac{ x_r \: cos \, \theta_i + y_r \: sin \, \theta_i - \rho_i + d\: cos(\theta_r-\theta_i)}{cos(\theta_i-\theta_r-\psi)} 
 \end{equation}
 
-%TODO schéma du robot!
+\begin{figure}
+  	\centering
+	\includestandalone[width=.4\textwidth]{robot}
+  	\caption{Robot parameters definitions. The robot (in blue) is performing one measure (in red) of the $i^{th}$ feature (in green).}
+\end{figure}
 
 % Qu'est-ce-que ça fait là!!!
 The computation of the jacobian show that the farer the distance measured is, higher is the uncertainty (because in this way the angle of the impacted measure is very low and the uncertainties on angles $\theta_r$ and $\theta_i$ have more influence).
@@ -169,48 +177,26 @@ with $i$ the observed feature.
 After each execution of the EKF step, outliers are saved in a buffer of a fixed size $N_{buffer}$.
 This buffer is used then to perform the line feature extraction.
 
-%TODO Diagram of the algortihm
+\begin{figure}
+  	\centering
+	\includestandalone[width=.4\textwidth]{algo}
+  	\caption{Line extraction algorithm.}
+\end{figure}
+
+An unsupervised clustering algorithm is then used in order to seperat measures that do not come from the same wall. This 
+
+
+First we try to detect if dataset is just noise or a line feature. We do this by comparing the covariance of the a cluster to the covariance of the uncertainty of measures. 
+Then we can perform the line extraction step. We use the maximum of likelihood to choose if the new feature will be a vertical or an horizontal line. 
+
+% Sigma initialisation
+
+\subsection{Implementation}
 
 The clustering algorithm really depends on the number of sensors and how much the measures are noisy. If the measures are not so noisy and they are few sensors, then the classification can be performed just with sensor index (the measure is classified by the sensor it is coming from).
 Otherwise a clustering algorithm is necessary: we used the DBSCAN discussed in \cite{ester1996density}.
 This choice is not the optimal one, and we beleive that it is possible to choose a better one that take in account constraints and probability consideration (such as  probability distribution parameteeers of the hit point after a measure).
 However, as long as data are not so noisy, the DBSCAN algorithm is enough.
-
-In order to extract line feature of the dataset, we used the maximum of likelihood between vertical and horizontal line
-
-
-
-% Why it can work (on attend qu'une tendance dde ligne se manifeste malgré le bruit
-
-% Computation of a new features
-
-% choice between vertical horizontal
-
-% Sigma initialisation
-
-
-\subsection{Implementation (0--2 pages)}
-
-The description of your method should be provided at a level of
-abstract where implementation details are avoided as much as
-possible. For conveying general knowledge it is typically
-uninteresting to know that you implemented your system in C++ or .NET
-and that you make use of package so and so. However to assess your
-results it may be important to know some of these details. This
-section, if present, provides the implementation details. Limit the
-description to what is important.  What language you used to implement
-your system is in many cases not interesting either but it might be
-interesting to know that you used a kd-tree to make access to certain
-data more efficient or that you made this run super fast using the
-GPU.  This is particularly important if you make comparisons of speed.
-Comparing EKF in Matlab to PF using GPU it would be important to point
-out theses details but if in the end you are focused on accuracy then
-it does not matter at all.
-
-Exactly what you put here varies from case to case. Instructions for
-how to run your system would not end up here unless it is related to
-the problem you deal with. Remember that it is not a software manual
-or a user guide.
 
 \section{Experimental results (1--4 pages)}
 \label{sec:exps}
