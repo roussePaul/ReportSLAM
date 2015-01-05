@@ -62,7 +62,7 @@ Later he adds some realistic constraints that can be met in an indoor environmen
 \subsection{Contribution}
 There are 3 main contributions in this article.
 First an implementation of a SLAM algorithm with line-feature. Unlike point-feature SLAM implementation, line-feature have the disadvantages of being contiuous, therefore it is difficult to choose when we need to create a new feature or when we need to keep new points associated to the previous line-feature.
-Second, we implemented a the constraint of parallel and orthogonal wall inside the EKF.
+Second, we implemented a the constraint of parallel and orthogonal wall inside the EKF (not just in the measure of features).
 Third, we show that a very simple algorithm can be used in order to create new features. In this way we avoid to use any Hough transform or heavy algorithm.
 
 \subsection{Outline}
@@ -88,48 +88,106 @@ This empirical method make the EKF difficult to adjust (the uncartainty on the m
 \section{My method (1--4) pages}
 \label{sec:method}
 
+% Choix strategique
+Most of the SLAM line-feature implemetation focus on measuring the line parameters  in the EKF. We have choosen to directly use the measures of sonars.
+% Algorithm general
+This choice was made in order to avoid implementing any Hough transform that will take too much computational ressources.
 
-Implementing a realistic Hough will take too much computational ressources, therefore we choose to avoid any Hough transform and to perform the observation not with lin
 
-You will describe your method / approach / theory in detail in this
-section. In a real paper you would pick a section title that is more
-descriptive than the above. Depending on the work you have done this
-might be split into several sections. Make use of references that
-describe core elements of your method so that you do not have to
-describe everything. There is no room for that. Key results from other
-sources should be summarized to make the paper self contained enough
-for someone in your field to be able to read it without having to read
-ten other papers before they can understand your paper.
+\subsection{Extended Kalman Filter}
+\label{sec:EKF}
 
-Make use of examples to explain things before you go into the gory
-details. Make good use of figures.  Do not introduce mathematical
-symbols unless you make use of them.  All symbols, tables and figures
-need to be explained in the body of the text.  Figures should also have
-captions that are somewhat self contained so that someone skimming and
-looking at the figures can know what they show. If you present
-something complicated you may want to explain it in several iterations
-where you start with an easy to understand, possibly somewhat
-simplified explanation and then go into details. A reader that is only
-looking for a method to use may not be interested in all the details
-but rather enough to understand how to use it and what limitations
-there are. Such a reader may not be a domain expert and he/she is
-likely to skip to the experiments at some point in this section
-because it gets too complicated to understand. Your presentation
-should make this possible.  Any new twist you add needs to be
-motivated in some way.  In a real paper a criticism is often why did
-you add this twist or modification.  Was the justification theoretical
-or just to 'make it work.'  Why is it better than other choices.
-Hacks make papers hard to pass muster in the real world.  In this
-project however this sort of critic is not going to come from me as it
-is not relevant.  I want you to get it to work so that is fine as a
-justification.  I also want you to play around and try out ideas, so
-that is also a good motivation.
+First, we will present the EKF method without any geometric constraints.
+The EKF model is the same as \cite{zunino2001simultaneous} for the predict step: the state of the EKF is represented by the state of the robot $\mathbf{x_r} = \left [x_r,y_r,\theta_r \right ]^T$ followed by the $N_f$ state vectors of features.
+The $i^{th}$ feature is represented just by its parameters in polar coordinates, $\mathbf{x_i} = [\rho_i, \theta_i]^T$.
 
-Do not be patronizing and avoid statements like "obvious algebraic
-manipulations yield...". It is often better to aim too low when it
-comes to your expectations of what the reader knows than too high. It
-is much easier to skip one of your steps than to come up with that
-step yourself as a reader.
+The predict step does not affect covariance matrices of features because they are not part of the dynamics (they are just measurements).
+
+The observation model compute the distance from the sensor to the $i^{th}$ wall feature in direction of the sensor. $\psi$ is the angle of the sensor in the reference of the robot and $d$ the sensor position along the robot.
+
+\begin{equation}
+h_i(\mathbf{x}) =\frac{ x_r \: cos \, \theta_i + y_r \: sin \, \theta_i - \rho_i + d\: cos(\theta_r-\theta_i)}{cos(\theta_i-\theta_r-\psi)} 
+\end{equation}
+
+%TODO schéma du robot!
+
+% Qu'est-ce-que ça fait là!!!
+The computation of the jacobian show that the farer the distance measured is, higher is the uncertainty (because in this way the angle of the impacted measure is very low and the uncertainties on angles $\theta_r$ and $\theta_i$ have more influence).
+Therefore if we want to have a precise estimation of the wall we should have orthogonal measures from it. The most optimal way to set sensors is to set them al around the robot.
+
+\subsection{Geometric constraints}
+\label{sec:geom}
+
+Geometrics constraints are both represented in the feature addition process and in the state vector of the EKF.
+We added a state variable $\alpha$ that represent the global orientation of the map according to the initial robot position.
+
+%TODO shéma de la map et de alpha
+
+The state vector of the EKF become:
+
+\begin{equation}
+\mathbf{X} = 
+\left [
+\begin{array}{c}
+\mathbf{x_r}\\ 
+\alpha\\ 
+\mathbf{x_1}\\
+\vdots \\  
+\mathbf{x_{N_f}}
+\end{array}
+\right ]
+\end{equation}
+
+We compute the observation model with the geometric constraint:
+
+\begin{equation}
+h_i(\mathbf{x}) =\frac{ x_r \: cos \, \beta_i(\alpha) + y_r \: sin \, \beta_i(\alpha) - \rho_i + d\: cos(\theta_r-\beta_i(\alpha))}{cos(\beta_i(\alpha)-\theta_r-\psi)} 
+\end{equation}
+
+with:
+
+\begin{equation}
+\begin{array}{l}
+\beta_i(\alpha) = \alpha - k \: \frac{\pi}{2}\\
+\mathit{with } \: k = \left \lfloor (\alpha-\theta_i) \: \frac{2 }{\pi} +\frac{1}{2} \right \rfloor
+\end{array}
+\end{equation}
+
+In other words, $\beta_i$ is the closest angle from $\theta_i$ which verify $\alpha \equiv \beta_i \left [ \frac{\pi}{2} \right ]$.
+
+In order to compute the jacobian matrix, we set:
+
+\begin{equation}
+\frac{\partial h}{\partial \alpha} = \frac{\partial h}{\partial \theta_i}
+\end{equation}
+
+with $i$ the observed feature.
+
+\subsection{Features addition}
+\label{sec:features}
+
+After each execution of the EKF step, outliers are saved in a buffer of a fixed size $N_{buffer}$.
+This buffer is used then to perform the line feature extraction.
+
+%TODO Diagram of the algortihm
+
+The clustering algorithm really depends on the number of sensors and how much the measures are noisy. If the measures are not so noisy and they are few sensors, then the classification can be performed just with sensor index (the measure is classified by the sensor it is coming from).
+Otherwise a clustering algorithm is necessary: we used the DBSCAN discussed in \cite{ester1996density}.
+This choice is not the optimal one, and we beleive that it is possible to choose a better one that take in account constraints and probability consideration (such as  probability distribution parameteeers of the hit point after a measure).
+However, as long as data are not so noisy, the DBSCAN algorithm is enough.
+
+In order to extract line feature of the dataset, we used the maximum of likelihood between vertical and horizontal line
+
+
+
+% Why it can work (on attend qu'une tendance dde ligne se manifeste malgré le bruit
+
+% Computation of a new features
+
+% choice between vertical horizontal
+
+% Sigma initialisation
+
 
 \subsection{Implementation (0--2 pages)}
 
