@@ -14,38 +14,55 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}}
 \citation{grossmann2001robust}
 \citation{choi2008line}
-\citation{choi2008line}
-\citation{stephens1991probabilistic}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Contribution}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Outline}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{3}}
 \newlabel{sec:relwork}{{2}{3}}
+\citation{choi2008line}
+\citation{stephens1991probabilistic}
 \citation{zunino2001simultaneous}
-\gincltex@bb{robot.tex}{0}{0}{203.72672}{150.5875}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Robot parameters definitions. The robot (in blue) is performing one measure (in red) of the $i^{th}$ feature (in green).}}{4}}
+\gincltex@bb{pictures/robot.tex}{0}{0}{207.85251}{152.38075}
 \@writefile{toc}{\contentsline {section}{\numberline {3}My method}{4}}
 \newlabel{sec:method}{{3}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Extended Kalman Filter}{4}}
 \newlabel{sec:EKF}{{3.1}{4}}
-\gincltex@bb{algo.tex}{0}{0}{118.25644}{143.48593}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Robot parameters definitions. The robot (in blue) is performing one measure (in red) of the $i^{th}$ feature (in green).\relax }}{5}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:minipage1}{{1}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Line extraction algorithm.\relax }}{5}}
+\newlabel{fig:minipage2}{{2}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Geometric constraints}{5}}
 \newlabel{sec:geom}{{3.2}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Features addition}{5}}
-\newlabel{sec:features}{{3.3}{5}}
 \citation{ester1996density}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Line extraction algorithm.}}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Features addition}{6}}
+\newlabel{sec:features}{{3.3}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Implementation}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental results (1--4 pages)}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental results}{6}}
 \newlabel{sec:exps}{{4}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Analyse of the EKF behavior}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Line extraction}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Data association}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Summary and Conclusions (0.5--1 page)}{7}}
 \newlabel{sec:summary}{{5}{7}}
+\newlabel{fig:noerr_map}{{3a}{8}}
+\newlabel{sub@fig:noerr_map}{{a}{8}}
+\newlabel{fig:noerr_sig}{{3b}{8}}
+\newlabel{sub@fig:noerr_sig}{{b}{8}}
+\newlabel{fig:noerr_fi_mu}{{3c}{8}}
+\newlabel{sub@fig:noerr_fi_mu}{{c}{8}}
+\newlabel{fig:noerr_fi_sig}{{3d}{8}}
+\newlabel{sub@fig:noerr_fi_sig}{{d}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Map (3a\hbox {}) and sigma coefficients (3b\hbox {}) of a simulation with a low noise on odometry mesure and sensors (about $10^{-2}(m/s, rad/s and m)$). The estimate trajectory of the robot (red crosses) is corrected thanks to the map estimation (blue lines) and "stick" to the true trajectory of the robot (in green) instead of following the basic odometry estimate trajectory (blue crosses). Figures 3c\hbox {} and 3d\hbox {} are graphes from the first feature the robot added to its state.\relax }}{8}}
+\newlabel{fig:noerr}{{3}{8}}
 \bibstyle{apalike}
 \bibdata{refs}
-\bibcite{Abrate_experimentalekf-based}{Abrate et\nobreakspace  {}al., }
+\bibcite{Abrate_experimentalekf-based}{Abrate et\nobreakspace  {}al., 2007}
 \bibcite{choi2005robust}{Choi et\nobreakspace  {}al., 2005}
 \bibcite{choi2008line}{Choi et\nobreakspace  {}al., 2008}
 \bibcite{diosi2005laser}{Diosi and Kleeman, 2005}
 \bibcite{Whyte06}{Durrant-Whyte and Bailey, 2006}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Each arrow match to a timestep where the robot measure the distance in a corner. The wrong association of the measure to the feature avoid the good estimation of alpha.\relax }}{9}}
+\newlabel{fig:alpha_trouble}{{4}{9}}
 \bibcite{ester1996density}{Ester et\nobreakspace  {}al., 1996}
 \bibcite{grossmann2001robust}{Gro{\ss }mann and Poli, 2001}
 \bibcite{jensfelt1999laser}{Jensfelt and Christensen, 1999}

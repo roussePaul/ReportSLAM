@@ -49,9 +49,13 @@
   \draw[green] (2,1.4) coordinate (a) -- (1.2,1.5) coordinate (b) node [left] {$(\rho_i,\theta_i)$};
   
   \begin{scope}[scale=0.25,shift={(4 cm,2 cm)},rotate=45]
-    \draw[->] (0,0) coordinate (r) -- (2,0) coordinate (f);
-    \draw[blue] (1,1) -- (1,-1) -- (-1,-1) -- (-1,1) -- (1,1);
+
+	\filldraw[fill=blue!20!white, draw=blue!40!black] (-1,-1) rectangle (1,1);
+    \draw[gray,->] (0,0) coordinate (r) -- (2,0) coordinate (f);
+    
     \draw[red,->] (0.5,0) coordinate (d) -- ($ (a)!0.75!(b) $) coordinate (e);
+
+	\filldraw[fill=red] (0.5,0) circle [radius=0.1];
     \draw[<->] (0,0) -- (0.5,0) node[below] {$d$};
     
     \tikzAngleOfLine(d)(e){\AngleStart}
@@ -61,8 +65,8 @@
   \end{scope}
   
   
-    \draw[dashed] (yaxis |- r) node[left] {$y$}
-        -| (xaxis -| r) node[below] {$x$};
+    \draw[dashed] (yaxis |- r) node[left] {$y_r$}
+        -| (xaxis -| r) node[below] {$x_r$};
     \coordinate (g) at ($(r)+(1,0)$);
     
     \tikzAngleOfLine(r)(f){\AngleS}

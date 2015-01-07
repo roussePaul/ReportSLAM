@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.9)  5 JAN 2015 22:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.9)  7 JAN 2015 13:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -65,6 +65,27 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen105
 \epsfysize=\dimen106
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen107
+\captionmargin@=\dimen108
+\captionwidth=\dimen109
+\caption@tempdima=\dimen110
+\caption@indent=\dimen111
+\caption@parindent=\dimen112
+\caption@hangindent=\dimen113
+)
+\c@ContinuedFloat=\count88
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count89
+\c@subtable=\count90
+)
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
@@ -98,7 +119,7 @@ Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 \XKV@toks=\toks15
 \XKV@tempa@toks=\toks16
-\XKV@depth=\count88
+\XKV@depth=\count91
 File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/currfile/currfile.sty
@@ -121,7 +142,7 @@ Package etexcmds Info: Could not find \expanded.
 (/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )
-\c@currfiledepth=\count89
+\c@currfiledepth=\count92
 )
 (/usr/share/texlive/texmf-dist/tex/latex/gincltex/gincltex.sty
 (/usr/share/texlive/texmf-dist/tex/latex/svn-prov/svn-prov.sty
@@ -143,30 +164,30 @@ Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box26
 )
-\tc@llx=\dimen107
-\tc@lly=\dimen108
-\tc@urx=\dimen109
-\tc@ury=\dimen110
+\tc@llx=\dimen114
+\tc@lly=\dimen115
+\tc@urx=\dimen116
+\tc@ury=\dimen117
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen111
-\adjbox@Height=\dimen112
-\adjbox@Depth=\dimen113
-\adjbox@Totalheight=\dimen114
+\adjbox@Width=\dimen118
+\adjbox@Height=\dimen119
+\adjbox@Depth=\dimen120
+\adjbox@Totalheight=\dimen121
 
 (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
-\c@checkoddpage=\count90
+\c@checkoddpage=\count93
 )
 (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box27
-\sift@deathcycles=\count91
-\@vwid@loff=\dimen115
-\@vwid@roff=\dimen116
+\sift@deathcycles=\count94
+\@vwid@loff=\dimen122
+\@vwid@roff=\dimen123
 ))
 \gincltex@box=\box28
 )
@@ -203,20 +224,20 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks20
 ))
-\pgf@x=\dimen117
-\pgf@y=\dimen118
-\pgf@xa=\dimen119
-\pgf@ya=\dimen120
-\pgf@xb=\dimen121
-\pgf@yb=\dimen122
-\pgf@xc=\dimen123
-\pgf@yc=\dimen124
+\pgf@x=\dimen124
+\pgf@y=\dimen125
+\pgf@xa=\dimen126
+\pgf@ya=\dimen127
+\pgf@xb=\dimen128
+\pgf@yb=\dimen129
+\pgf@xc=\dimen130
+\pgf@yc=\dimen131
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count92
-\c@pgf@countb=\count93
-\c@pgf@countc=\count94
-\c@pgf@countd=\count95
+\c@pgf@counta=\count95
+\c@pgf@countb=\count96
+\c@pgf@countc=\count97
+\c@pgf@countd=\count98
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -231,8 +252,8 @@ File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count96
-\pgfsyssoftpath@bigbuffer@items=\count97
+\pgfsyssoftpath@smallbuffer@items=\count99
+\pgfsyssoftpath@bigbuffer@items=\count100
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -261,8 +282,8 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen125
-\pgfmath@count=\count98
+\pgfmath@dimen=\dimen132
+\pgfmath@count=\count101
 \pgfmath@box=\box30
 \pgfmath@toks=\toks21
 \pgfmath@stack@operand=\toks22
@@ -277,51 +298,51 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count99
+\c@pgfmathroundto@lastzeros=\count102
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen126
-\pgf@picmaxx=\dimen127
-\pgf@picminy=\dimen128
-\pgf@picmaxy=\dimen129
-\pgf@pathminx=\dimen130
-\pgf@pathmaxx=\dimen131
-\pgf@pathminy=\dimen132
-\pgf@pathmaxy=\dimen133
-\pgf@xx=\dimen134
-\pgf@xy=\dimen135
-\pgf@yx=\dimen136
-\pgf@yy=\dimen137
-\pgf@zx=\dimen138
-\pgf@zy=\dimen139
+\pgf@picminx=\dimen133
+\pgf@picmaxx=\dimen134
+\pgf@picminy=\dimen135
+\pgf@picmaxy=\dimen136
+\pgf@pathminx=\dimen137
+\pgf@pathmaxx=\dimen138
+\pgf@pathminy=\dimen139
+\pgf@pathmaxy=\dimen140
+\pgf@xx=\dimen141
+\pgf@xy=\dimen142
+\pgf@yx=\dimen143
+\pgf@yy=\dimen144
+\pgf@zx=\dimen145
+\pgf@zy=\dimen146
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen140
-\pgf@path@lasty=\dimen141
+\pgf@path@lastx=\dimen147
+\pgf@path@lasty=\dimen148
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen142
-\pgf@shorten@start@additional=\dimen143
+\pgf@shorten@end@additional=\dimen149
+\pgf@shorten@start@additional=\dimen150
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box31
 \pgf@hbox=\box32
 \pgf@layerbox@main=\box33
-\pgf@picture@serial@count=\count100
+\pgf@picture@serial@count=\count103
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen144
+\pgflinewidth=\dimen151
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen145
-\pgf@pt@y=\dimen146
-\pgf@pt@temp=\dimen147
+\pgf@pt@x=\dimen152
+\pgf@pt@y=\dimen153
+\pgf@pt@temp=\dimen154
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -337,8 +358,8 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen148
-\pgf@sys@shading@range@num=\count101
+\pgf@max=\dimen155
+\pgf@sys@shading@range@num=\count104
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
@@ -365,8 +386,8 @@ File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen149
-\pgf@nodesepend=\dimen150
+\pgf@nodesepstart=\dimen156
+\pgf@nodesepend=\dimen157
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
@@ -376,8 +397,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen151
-\pgffor@skip=\dimen152
+\pgffor@iter=\dimen158
+\pgffor@skip=\dimen159
 \pgffor@stack=\toks24
 \pgffor@toks=\toks25
 ))
@@ -386,29 +407,29 @@ Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count102
-\pgfplotmarksize=\dimen153
+\pgf@plot@mark@count=\count105
+\pgfplotmarksize=\dimen160
 )
-\tikz@lastx=\dimen154
-\tikz@lasty=\dimen155
-\tikz@lastxsaved=\dimen156
-\tikz@lastysaved=\dimen157
-\tikzleveldistance=\dimen158
-\tikzsiblingdistance=\dimen159
+\tikz@lastx=\dimen161
+\tikz@lasty=\dimen162
+\tikz@lastxsaved=\dimen163
+\tikz@lastysaved=\dimen164
+\tikzleveldistance=\dimen165
+\tikzsiblingdistance=\dimen166
 \tikz@figbox=\box36
 \tikz@tempbox=\box37
-\tikztreelevel=\count103
-\tikznumberofchildren=\count104
-\tikznumberofcurrentchild=\count105
-\tikz@fig@count=\count106
+\tikztreelevel=\count106
+\tikznumberofchildren=\count107
+\tikznumberofcurrentchild=\count108
+\tikz@fig@count=\count109
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count107
-\pgfmatrixcurrentcolumn=\count108
-\pgf@matrix@numberofcolumns=\count109
+\pgfmatrixcurrentrow=\count110
+\pgfmatrixcurrentcolumn=\count111
+\pgf@matrix@numberofcolumns=\count112
 )
-\tikz@expandcount=\count110
+\tikz@expandcount=\count113
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
@@ -424,31 +445,31 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen160
+\scratchcounter=\count114
+\scratchdimen=\dimen167
 \scratchbox=\box38
-\nofMPsegments=\count112
-\nofMParguments=\count113
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen161
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen168
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -476,69 +497,196 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 ABD: EveryShipout initializing macros
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 31.
+(Font)              <14.4> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 31.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 43.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 43.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 43.
+(Font)              <7> on input line 33.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ] [2
 
 ] [3]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 108.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 108.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 108.
 runsystem(pdflatex -interaction=batchmode -shell-escape -jobname 'robot'  robot
 )...disabled (restricted).
 
 
 
 Package standalone Warning: Graphic 'robot.pdf' could not be build.
-Shell escape activated? on input line 118.
+Shell escape activated? on input line 124.
 
-(./robot.tex)
-File: robot.tex Graphic file (type tex)
- [4]
-runsystem(pdflatex -interaction=batchmode -shell-escape -jobname 'algo'  algo).
-..disabled (restricted).
+(./pictures/robot.tex)
+File: pictures/robot.tex Graphic file (type tex)
+Package standalone Info: algo.tex file newer then algo.pdf on input line 131.
+ <algo.pdf, id=21, 115.0669pt x 163.3573pt>
+File: algo.pdf Graphic file (type pdf)
+
+<use algo.pdf>
+Package pdftex.def Info: algo.pdf used on input line 131.
+(pdftex.def)             Requested size: 140.39958pt x 199.328pt.
+ [4] [5 <./algo.pdf>] [6]
+Package epstopdf Info: Source file: <pictures/noerr_map2.eps>
+(epstopdf)                    date: 2015-01-06 10:50:21
+(epstopdf)                    size: 72509 bytes
+(epstopdf)             Output file: <pictures/noerr_map2-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-01-06 13:34:12
+(epstopdf)                    size: 55787 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/noerr_map2-eps-co
+nverted-to.pdf pictures/noerr_map2.eps>
+(epstopdf)             \includegraphics on input line 237.
+Package epstopdf Info: Output file is already uptodate.
+
+<pictures/noerr_map2-eps-converted-to.pdf, id=44, 449.68pt x 338.26375pt>
+File: pictures/noerr_map2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pictures/noerr_map2-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/noerr_map2-eps-converted-to.pdf used on input
+ line 237.
+(pdftex.def)             Requested size: 175.49881pt x 132.01523pt.
+Package epstopdf Info: Source file: <pictures/noerr_sig.eps>
+(epstopdf)                    date: 2015-01-06 10:01:13
+(epstopdf)                    size: 71446 bytes
+(epstopdf)             Output file: <pictures/noerr_sig-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-01-06 13:23:10
+(epstopdf)                    size: 43980 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/noerr_sig-eps-con
+verted-to.pdf pictures/noerr_sig.eps>
+(epstopdf)             \includegraphics on input line 242.
+Package epstopdf Info: Output file is already uptodate.
+
+<pictures/noerr_sig-eps-converted-to.pdf, id=45, 449.68pt x 338.26375pt>
+File: pictures/noerr_sig-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pictures/noerr_sig-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/noerr_sig-eps-converted-to.pdf used on input 
+line 242.
+(pdftex.def)             Requested size: 175.49881pt x 132.01523pt.
+Package epstopdf Info: Source file: <pictures/noerr_f1_mu.eps>
+(epstopdf)                    date: 2015-01-06 10:28:44
+(epstopdf)                    size: 10770 bytes
+(epstopdf)             Output file: <pictures/noerr_f1_mu-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2015-01-06 14:09:32
+(epstopdf)                    size: 7582 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/noerr_f1_mu-eps-c
+onverted-to.pdf pictures/noerr_f1_mu.eps>
+(epstopdf)             \includegraphics on input line 249.
+Package epstopdf Info: Output file is already uptodate.
+
+<pictures/noerr_f1_mu-eps-converted-to.pdf, id=46, 449.68pt x 338.26375pt>
+File: pictures/noerr_f1_mu-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pictures/noerr_f1_mu-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/noerr_f1_mu-eps-converted-to.pdf used on inpu
+t line 249.
+(pdftex.def)             Requested size: 175.49881pt x 132.01523pt.
+Package epstopdf Info: Source file: <pictures/noerr_f1_sig.eps>
+(epstopdf)                    date: 2015-01-06 14:05:13
+(epstopdf)                    size: 41497 bytes
+(epstopdf)             Output file: <pictures/noerr_f1_sig-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2015-01-06 14:09:32
+(epstopdf)                    size: 19053 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/noerr_f1_sig-eps-
+converted-to.pdf pictures/noerr_f1_sig.eps>
+(epstopdf)             \includegraphics on input line 254.
+Package epstopdf Info: Output file is already uptodate.
+
+<pictures/noerr_f1_sig-eps-converted-to.pdf, id=47, 442.65375pt x 338.26375pt>
+File: pictures/noerr_f1_sig-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pictures/noerr_f1_sig-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/noerr_f1_sig-eps-converted-to.pdf used on inp
+ut line 254.
+(pdftex.def)             Requested size: 175.49881pt x 134.1108pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 267.
 
 
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 267.
+Package epstopdf Info: Source file: <pictures/alpha_trouble_map.eps>
+(epstopdf)                    date: 2015-01-06 17:43:30
+(epstopdf)                    size: 21090 bytes
+(epstopdf)             Output file: <pictures/alpha_trouble_map-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2015-01-06 17:44:38
+(epstopdf)                    size: 16336 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/alpha_trouble_map
+-eps-converted-to.pdf pictures/alpha_trouble_map.eps>
+(epstopdf)             \includegraphics on input line 292.
+Package epstopdf Info: Output file is already uptodate.
 
-Package standalone Warning: Graphic 'algo.pdf' could not be build.
-Shell escape activated? on input line 182.
+<pictures/alpha_trouble_map-eps-converted-to.pdf, id=48, 442.65375pt x 338.2637
+5pt>
+File: pictures/alpha_trouble_map-eps-converted-to.pdf Graphic file (type pdf)
+ <use pictures/alpha_trouble_map-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/alpha_trouble_map-eps-converted-to.pdf used o
+n input line 292.
+(pdftex.def)             Requested size: 175.49881pt x 134.1108pt.
+Package epstopdf Info: Source file: <pictures/alpha_trouble.eps>
+(epstopdf)                    date: 2015-01-06 17:41:23
+(epstopdf)                    size: 23345 bytes
+(epstopdf)             Output file: <pictures/alpha_trouble-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2015-01-06 17:44:39
+(epstopdf)                    size: 16504 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/alpha_trouble-eps
+-converted-to.pdf pictures/alpha_trouble.eps>
+(epstopdf)             \includegraphics on input line 297.
+Package epstopdf Info: Output file is already uptodate.
 
-(./algo.tex)
-File: algo.tex Graphic file (type tex)
- [5] [6] [7] (./Report.bbl [8]) [9] (./Report.aux) ) 
+<pictures/alpha_trouble-eps-converted-to.pdf, id=49, 449.68pt x 338.26375pt>
+File: pictures/alpha_trouble-eps-converted-to.pdf Graphic file (type pdf)
+
+<use pictures/alpha_trouble-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/alpha_trouble-eps-converted-to.pdf used on in
+put line 297.
+(pdftex.def)             Requested size: 175.49881pt x 132.01523pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 298.
+ [7] [8 <./pictures/noerr_map2-eps-converted-to.pdf> <./pictures/noerr_sig-eps-
+converted-to.pdf> <./pictures/noerr_f1_mu-eps-converted-to.pdf> <./pictures/noe
+rr_f1_sig-eps-converted-to.pdf>] (./Report.bbl [9 <./pictures/alpha_trouble_map
+-eps-converted-to.pdf> <./pictures/alpha_trouble-eps-converted-to.pdf>]) [10] (
+./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 11483 strings out of 494985
- 214456 string characters out of 6180356
- 258724 words of memory out of 5000000
- 14426 multiletter control sequences out of 15000+600000
- 11085 words of font info for 38 fonts, out of 8000000 for 9000
+ 12626 strings out of 494985
+ 235753 string characters out of 6180356
+ 280270 words of memory out of 5000000
+ 15539 multiletter control sequences out of 15000+600000
+ 12047 words of font info for 41 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 67i,12n,82p,734b,971s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Report.pdf (9 pages, 175245 bytes).
+ 67i,14n,75p,666b,1052s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Report.pdf (10 pages, 335393 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 163 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

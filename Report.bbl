@@ -2,8 +2,8 @@
   \newcommand{\SwapArgs}[2]{#2#1}
 \begin{thebibliography}{}
 
-\bibitem[Abrate et~al., ]{Abrate_experimentalekf-based}
-Abrate, F., Bona, B., and Indri, M.
+\bibitem[Abrate et~al., 2007]{Abrate_experimentalekf-based}
+Abrate, F., Bona, B., and Indri, M. (2007).
 \newblock Experimental ekf-based slam for mini-rovers with ir sensors only.
 
 \bibitem[Choi et~al., 2005]{choi2005robust}
