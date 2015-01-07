@@ -88,15 +88,17 @@ That is the strategy of \cite{choi2008line}, they made an implementation of the 
 After this pre-treatment, line features are extracted thanks to a constrained Hough transform. The EKF estimate each line features independently.
 Therefore the constrained is set inside the measure and not inside the EKF.
 
-However, the Hough transform used in \cite{choi2008line} is not a probabilistic tool, it is an approximation of a probabilistic tool (\cite{stephens1991probabilistic}).
-Therefore, they developpe their own covariance calculation which does not take in account the uncertainty on measure.
-This empirical method make the EKF difficult to adjust (the uncartainty on the measure does not affect the empirical covariance computation on the Hough transform!
+However, the Hough transform used in \cite{choi2008line} is not a probabilistic tool, it is an approximation of a probabilistic tool, a more accurate definition of the Hough transform has been studied in \cite{stephens1991probabilistic}. Because it is not possible to access to the covariance of the line, they developpe their own covariance calculation which does not take in account the uncertainty on measure.
+This empirical method make the EKF difficult to adjust (the uncartainty on the measure does not affect the empirical covariance computation on the Hough transform)!
+
+
+%TODO Abrate_experimentalekf-based
 
 \section{My method}
 \label{sec:method}
 
 % Choix strategique
-Most of the SLAM line-feature implemetation focus on measuring the line parameters in the EKF. We have choosen to directly use the measures of sonars.
+Most of the SLAM line feature implemetations focus on measuring the line parameters in the EKF. We have choosen to directly use the measures of sonars.
 % Algorithm general
 This choice was made in order to avoid implementing any Hough transform that will take too much computational ressources.
 
@@ -104,13 +106,11 @@ This choice was made in order to avoid implementing any Hough transform that wil
 \subsection{Extended Kalman Filter}
 \label{sec:EKF}
 
-First, we will present the EKF method without any geometric constraints.
-The EKF model is the same as \cite{zunino2001simultaneous} for the predict step: the state of the EKF is represented by the state of the robot $\mathbf{x_r} = \left [x_r,y_r,\theta_r \right ]^T$ followed by the $N_f$ state vectors of features.
+The EKF model is the same as \cite{zunino2001simultaneous} for the predict step: the state of the EKF is represented by the state of the robot $\mathbf{x_r} = [x_r,y_r,\theta_r ]^T$ followed by $N_f$ state vectors of the features.
 The $i^{th}$ feature is represented just by its parameters in polar coordinates, $\mathbf{x_i} = [\rho_i, \theta_i]^T$.
+The state vector used is $X = [x_r,y_r,\theta_r,\rho_1, \theta_1, \cdots, \rho_{N_f}, \theta_{N_f}]^T$.
 
-The predict step does not affect covariance matrices of features because they are not part of the dynamics (they are just measurements).
-
-The observation model compute the distance from the sensor to the $i^{th}$ wall feature in direction of the sensor. $\psi$ is the angle of the sensor in the reference of the robot and $d$ the sensor position along the robot.
+The observation model compute the distance from the sensor to the $i^{th}$ line feature in direction of the sensor. $\psi$ is the angle of the sensor in the reference of the robot and $d$ the sensor position along the robot (see figure \ref{sec:geom} for parameter definitions).
 
 \begin{equation}
 h_i(\mathbf{x}) =\frac{ x_r \: cos \, \theta_i + y_r \: sin \, \theta_i - \rho_i + d\: cos(\theta_r-\theta_i)}{cos(\theta_i-\theta_r-\psi)} 
@@ -123,19 +123,20 @@ h_i(\mathbf{x}) =\frac{ x_r \: cos \, \theta_i + y_r \: sin \, \theta_i - \rho_i
 \centering
 	\includestandalone[width=1.0\linewidth]{robot}
   	\caption{Robot parameters definitions. The robot (in blue) is performing one measure (in red) of the $i^{th}$ feature (in green).}
-  	\label{fig:minipage1}
+  	\label{fig:geom}
 \end{minipage}
 \quad
 \begin{minipage}[b]{0.45\linewidth}
 \centering
 	\includestandalone[width=.8\linewidth]{algo}
-  	\caption{Line extraction algorithm.}
-\label{fig:minipage2}
+  	\caption{Line extraction strategy.}
+\label{fig:algo}
 \end{minipage}
 \end{figure}
-% Qu'est-ce-que ça fait là!!!
-The computation of the jacobian show that the farer the distance measured is, higher is the uncertainty (because in this way the angle of the impacted measure is very low and the uncertainties on angles $\theta_r$ and $\theta_i$ have more influence).
-Therefore if we want to have a precise estimation of the wall we should have orthogonal measures from it. The most optimal way to set sensors is to set them al around the robot.
+
+%% Qu'est-ce-que ça fait là!!!
+%The computation of the jacobian show that the farer the distance measured is, higher is the uncertainty (because in this way the angle of the impacted measure is very low and the uncertainties on angles $\theta_r$ and $\theta_i$ have more influence).
+%Therefore if we want to have a precise estimation of the wall we should have orthogonal measures from it. The most optimal way to set sensors is to set them al around the robot.
 
 \subsection{Geometric constraints}
 \label{sec:geom}
@@ -145,25 +146,12 @@ We added a state variable $\alpha$ that represent the global orientation of the 
 
 %TODO shéma de la map et de alpha
 
-The state vector of the EKF become:
-
-\begin{equation}
-\mathbf{X} = 
-\left [
-\begin{array}{ccccc}
-\mathbf{x_r}&
-\alpha& 
-\mathbf{x_1}&
-\cdots &  
-\mathbf{x_{N_f}}
-\end{array}
-\right ]^T
-\end{equation}
-
-We compute the observation model with the geometric constraint:
-
+The state vector of the EKF become
+$\mathbf{X} = [\mathbf{x_r}, \alpha, \mathbf{x_1}, \cdots, \mathbf{x_{N_f}} ]^T$.
+And the observation model with the geometric constraint is given in equation \ref{eq:obs}.
 \begin{equation}
 h_i(\mathbf{x}) =\frac{ x_r \: cos \, \beta_i(\alpha) + y_r \: sin \, \beta_i(\alpha) - \rho_i + d\: cos(\theta_r-\beta_i(\alpha))}{cos(\beta_i(\alpha)-\theta_r-\psi)} 
+\label{eq:obs}
 \end{equation}
 
 with:
@@ -183,33 +171,26 @@ In order to compute the jacobian matrix, we set:
 \frac{\partial h}{\partial \alpha} = \frac{\partial h}{\partial \theta_i}
 \end{equation}
 
-with $i$ the observed feature.
+for the $i^{th}$ observed feature.
 
 \subsection{Features addition}
 \label{sec:features}
 
-After each execution of the EKF step, outliers are saved in a buffer of a fixed size $N_{buffer}$.
+The figure \ref{fig:algo} sum up how the feature addition works. After each execution of the EKF step, outliers are saved in a buffer of a fixed size of $N_{buffer}$ elements.
 This buffer is used then to perform the line feature extraction.
 
-%\begin{figure}
-%  	\centering
-%\end{figure}
+An unsupervised clustering algorithm is used in order to distinguish measures that do not come from the same wall.
 
-An unsupervised clustering algorithm is then used in order to seperat measures that do not come from the same wall. This 
+If measures are too noisy, it is not possible to decide if the new line feature will be a belong $\alpha$ or $\alpha + \frac{\pi}{2}$. So first we try to detect if dataset is just noise or a line feature. We do this by comparing the covariance of the a cluster of points $\Sigma_{cluster}$ to the covariance of the uncertainty of these points $\Sigma_{noise}$. If  $\left | \Sigma_{cluster} \right | > \left | \Sigma_{noise} \right |$, then we can perform the line extraction step.
 
-First we try to detect if dataset is just noise or a line feature. We do this by comparing the covariance of the a cluster of points to the covariance of the uncertainty of these points. If the covariance is 
-Then we can perform the line extraction step. We use the maximum of likelihood to choose if the new feature will be a vertical or an horizontal line. 
-
-%TODO talk about sigma and finish explanation
-
-% Sigma initialisation
+The line extraction algorithm consist in choosing the line that fit the best to the cloud of points. We choose to compare the distribution of $\rho$ for each type of lines and we choose the line for which the covariance of $\rho$ is the lowest.
 
 \subsection{Implementation}
 
 The clustering algorithm really depends on the number of sensors and how much the measures are noisy. If the measures are not so noisy and they are few sensors, then the classification can be performed just with indexes of the sensors (the measure is classified by the sensor it is coming from).
-Otherwise a clustering algorithm is necessary: we used the DBSCAN discussed in \cite{ester1996density}. The DBSCAN algorithm classify in the same cluster points wich are closer than a given distance $\epsilon$.
+Otherwise a clustering algorithm is necessary: we used the DBSCAN discussed in \cite{ester1996density}. The DBSCAN algorithm classify points according to there distance. If 2 points are closer than a given distance $\epsilon$, then they belong to the same cluster.
 
-This choice is not the optimal one, and we beleive that it is possible to choose a better one that take in account constraints and probability consideration (such as probability distribution parameters of the hit point after a measure).
+This choice is not the optimal one, and we beleive that it is possible to choose a better one that take in account constraints and probability considerations (such as probability distribution parameters of the hit point after a measure).
 However, as long as data are not so noisy, the DBSCAN algorithm is enough.
 
 \section{Experimental results}
@@ -227,7 +208,7 @@ The unceartainty on features alway decrease (see figure \ref{fig:noerr_fi_sig}).
 This is a real issue in case of slidding motion of the robot: whatever the uncertainty $Q$ you have on the measure, the belief of the feature will increase. Therefore the EKF will always change the robot position because this is the only variable in the state vector that is not fully certain (contrary to every other features parameters).
 
 
-\begin{figure*}
+\begin{figure}
         \centering
         
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
@@ -258,7 +239,7 @@ This is a real issue in case of slidding motion of the robot: whatever the uncer
         
         \caption{Map (\ref{fig:noerr_map}) and sigma coefficients (\ref{fig:noerr_sig}) of a simulation with a low noise on odometry mesure and sensors (about $10^{-2}(m/s, rad/s and m)$). The estimate trajectory of the robot (red crosses) is corrected thanks to the map estimation (blue lines) and "stick" to the true trajectory of the robot (in green) instead of following the basic odometry estimate trajectory (blue crosses). Figures \ref{fig:noerr_fi_mu} and \ref{fig:noerr_fi_sig} are graphes from the first feature the robot added to its state.}
 \label{fig:noerr}
-\end{figure*}
+\end{figure}
 
 \subsection{Line extraction}
 
